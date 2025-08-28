@@ -1,0 +1,21 @@
+{
+  "name": "SiteContent",
+  "type": "object",
+  "properties": {
+    "ambassador_video_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "URL for the German Ambassador's video testimonial."
+    },
+    "graduate_video_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "URL for the graduate's video testimonial."
+    }
+  },
+  "required": []
+}
