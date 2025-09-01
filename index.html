@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hello Deutsch – Turbo German Course</title>
 
-  <link rel="icon" href="assets/Lala.png">
+  <!-- favicon now points to the root file -->
+  <link rel="icon" href="Lala.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,7 +68,7 @@
     .hero{position:relative; background:linear-gradient(180deg, var(--bg) 0%, var(--bg-dark) 100%); color:var(--white); overflow:hidden}
     .hero .container{padding-top:72px; padding-bottom:56px}
 
-    /* ======== KEEPING YOUR BADGES CSS EXACTLY ======== */
+    /* ======== Badges (moved closer to the edges) ======== */
     .badges .badge{
       position:absolute; top:clamp(130px, 27vh, 290px);
       background:var(--white); color:var(--text);
@@ -77,9 +78,12 @@
     .badges .badge b{font-weight:700}
     .badges .badge small{display:block; font-size:.85rem; opacity:.8}
     .badges .badge .icon{width:24px; height:24px; display:grid; place-items:center; background:#ecfeff; border-radius:8px; color:#0e7490}
-    .badge:not(.right){ left:300px; }
+
+    /* was left:300px; now responsive and much closer to the left edge */
+    .badge:not(.right){ left: clamp(12px, 4vw, 60px); }
+
     .badge.right{
-      right: calc((100vw - var(--max))/2 + 32px);
+      right: clamp(12px, 4vw, 60px);
       top: calc(clamp(130px, 72vh, 290px) + 90px);
     }
     @media (max-width: 1200px){ .badges{display:none} }
@@ -178,7 +182,7 @@
     .testimonial .container { text-align:left; }
     .testimonial .grid{display:grid; grid-template-columns: 1.15fr 1fr; gap: clamp(24px,4vw,48px); align-items:center; margin-top: clamp(18px,2vw,24px)}
     .media-frame{ border-radius:18px; overflow:hidden; background:#0b1220; box-shadow: 0 18px 40px rgba(0,0,0,.18) }
-    .media-frame video,.media-frame iframe{ display:block; width:100%; height:auto; aspect-ratio:16/9; background:#000 }
+    .media-frame video,.media-frame iframe,.media-frame img{ display:block; width:100%; height:auto; aspect-ratio:16/9; background:#000 }
     .quote{ position:relative; z-index:0 }
     .quote::before{ content:""; position:absolute; left:-18px; top:-14px; width:84px; height:84px; border-radius:50%; background:var(--mint); z-index:-1 }
     .quote::after{ content:""; position:absolute; right:-26px; bottom:-22px; width:120px; height:120px; border-radius:50%; background:var(--peach); z-index:-1 }
@@ -316,25 +320,24 @@
     <div class="container">
       <header>
         <nav class="nav" aria-label="Primary">
-  <div class="brand">
-    <span class="logo"><img src="assets/Lala.png" alt="Hello Deutsch logo"></span>
-    <b>Hello Deutsch</b>
-  </div>
+          <div class="brand">
+            <!-- logo path fixed -->
+            <span class="logo"><img src="Lala.png" alt="Hello Deutsch logo"></span>
+            <b>Hello Deutsch</b>
+          </div>
 
-  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-  </button>
+          <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </button>
 
-  <div class="nav-links" id="navLinks">
-    <a href="#home">Home</a>
-    <a href="#our-story">Our Story</a>
-    <a href="#process">How We Work</a>
-    <a href="#news">Blog</a>
-    <a href="pricing.html">Pricing</a>
-
-  </div>
-</nav>
-
+          <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#our-story">Our Story</a>
+            <a href="#process">How We Work</a>
+            <a href="#news">Blog</a>
+            <a href="pricing.html">Pricing</a>
+          </div>
+        </nav>
       </header>
 
       <!-- Bubbles -->
@@ -507,8 +510,9 @@
 
       <div class="grid">
         <figure class="media-frame">
-          <video controls playsinline poster="assets/video/ambassador-poster.jpg">
-            <source src="assets/video/ambassador.mp4" type="video/mp4" />
+          <!-- video path fixed; poster removed (not in repo) -->
+          <video controls playsinline>
+            <source src="ambassador.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </figure>
@@ -524,7 +528,7 @@
     </div>
   </section>
 
-  <!-- ================= TESTIMONIAL: GRADUATES ================= -->
+  <!-- ================= TESTIMONIAL: GRADUATES (uses an image you have) ================= -->
   <section id="graduates" class="section testimonial">
     <div class="container">
       <p class="eyebrow">HEAR FROM OUR GRADUATES</p>
@@ -532,10 +536,8 @@
 
       <div class="grid">
         <figure class="media-frame">
-          <video controls playsinline poster="assets/video/graduate-poster.jpg">
-            <source src="assets/video/graduate.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          <!-- use an existing classroom image instead of a missing video -->
+          <img src="class-06.jpg" alt="Hello Deutsch classroom moment">
         </figure>
 
         <div class="quote">
@@ -609,6 +611,7 @@
       </p>
 
       <div class="process-grid">
+        <!-- cards unchanged -->
         <article class="p-card">
           <span class="p-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 7h10v10H9V7ZM7 5v14H3V5h4Zm12 0h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-2V5Z"/></svg>
@@ -740,8 +743,8 @@
     <div class="container">
       <div class="footer-top">
         <a class="footer-logo" href="#">
-          <!-- replace with your final logo file -->
-          <img src="assets/Logo-footer.png" alt="Hello Deutsch logo">
+          <!-- footer logo path fixed -->
+          <img src="Logo-footer.png" alt="Hello Deutsch logo">
         </a>
 
         <nav class="footer-links" aria-label="Footer">
@@ -794,7 +797,7 @@
       document.head.appendChild(styleTag);
     }
 
-    /* --- Success counters (animate on view, with fallback) --- */
+    /* --- Success counters --- */
     const successEl = document.getElementById('success');
     const counters  = successEl ? successEl.querySelectorAll('.stat .num') : [];
     const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
@@ -823,12 +826,12 @@
 
     /* --- Gallery / Showcase --- */
     const showcaseSlides = [
-      { type:'image', src:'assets/gallery/class-01.jpg', thumb:'assets/gallery/thumbs/class-01.jpg', caption:'Interactive Computer-Based Learning' },
-      { type:'image', src:'assets/gallery/class-02.jpg', thumb:'assets/gallery/thumbs/class-02.jpg', caption:'Supportive Classroom Environment' },
-      { type:'image', src:'assets/gallery/class-03.jpg', thumb:'assets/gallery/thumbs/class-03.jpg', caption:'Small, Focused Groups' },
-      { type:'image', src:'assets/gallery/class-04.jpg', thumb:'assets/gallery/thumbs/class-04.jpg', caption:'Guided Speaking Sessions' },
-      { type:'image', src:'assets/gallery/class-05.jpg', thumb:'assets/gallery/thumbs/class-05.jpg', caption:'Real-world Exam Prep' },
-      { type:'image', src:'assets/gallery/class-06.jpg', thumb:'assets/gallery/thumbs/class-06.jpg', caption:'Collaborative Learning' },
+      { type:'image', src:'class-01.jpg', thumb:'class-01.jpg', caption:'Interactive Computer-Based Learning' },
+      { type:'image', src:'class-02.jpg', thumb:'class-02.jpg', caption:'Supportive Classroom Environment' },
+      { type:'image', src:'class-03.jpg', thumb:'class-03.jpg', caption:'Small, Focused Groups' },
+      { type:'image', src:'class-04.jpg', thumb:'class-04.jpg', caption:'Guided Speaking Sessions' },
+      { type:'image', src:'class-05.jpg', thumb:'class-05.jpg', caption:'Real-world Exam Prep' },
+      { type:'image', src:'class-06.jpg', thumb:'class-06.jpg', caption:'Collaborative Learning' },
     ];
     const stage   = document.querySelector('#learning-env .stage');
     const slidesC = stage.querySelector('.slides');
