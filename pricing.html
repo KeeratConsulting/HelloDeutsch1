@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hello Deutsch — Pricing</title>
+
+ <link rel="icon" href="assets/Lala.png">
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --max: 1120px;
+    --bg1:#0db1a6;
+    --bg2:#0aa091;
+    --teal:#10a39c;
+    --teal-700:#0d857f;
+    --ink:#101826;
+    --text:#1c2635;
+    --muted:#5c6b7a;
+    --card:#ffffff;
+    --surface:#f3f7f6;
+    --ring:#dfe7e6;
+    --shadow:0 10px 30px rgba(0,0,0,.08), 0 2px 8px rgba(0,0,0,.06);
+    --radius:18px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:Inter,system-ui,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+    color:var(--text);
+    background:#fff;
+    line-height:1.55;
+  }
+  .container{max-width:var(--max); margin-inline:auto; padding:0 20px}
+
+  /* ============ header ============ */
+  .hero-top{
+    background:linear-gradient(150deg,var(--bg1),var(--bg2));
+    color:#fff;
+    position:relative;
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px; padding:20px 0;
+  }
+  .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px}
+  .brand img{width:36px; height:36px; object-fit:contain}
+  .nav-links{display:flex; gap:min(4vw,28px)}
+  .nav-links a{
+    color:#fff; text-decoration:none; font-weight:700; opacity:.9;
+  }
+  .nav-links a:hover{opacity:1; text-decoration:underline}
+  .nav-toggle{display:none; background:none; border:0; color:#fff; padding:6px}
+  .nav-toggle svg{width:28px; height:28px}
+
+  .hero{padding:48px 0 36px}
+  .hero h1{
+    margin:0 0 10px;
+    font-size:clamp(28px,4vw,44px);
+    line-height:1.15; letter-spacing:.2px; font-weight:800;
+  }
+  .hero p{margin:0; opacity:.9}
+
+  /* ============ cards ============ */
+  .section{padding:32px 0 60px; background:#fff}
+  .stack{display:grid; gap:22px}
+
+  .price-card{
+    background:var(--card);
+    border:1px solid var(--ring);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:22px 22px 20px;
+    display:grid; grid-template-columns: 1fr auto; gap:10px 24px; align-items:start;
+  }
+  .price-card .eyebrow{
+    font-size:14px; color:var(--teal-700); font-weight:700; letter-spacing:.2px; margin-bottom:6px;
+  }
+  .price-card h3{
+    margin:0 0 6px; font-size: clamp(21px,2.1vw,28px); line-height:1.25; color:var(--ink);
+  }
+  .meta{display:flex; gap:18px; flex-wrap:wrap; color:var(--muted); font-weight:600; margin:8px 0 10px}
+  .meta b{color:var(--text)}
+  .desc{grid-column:1 / -1; color:var(--text); margin-top:2px}
+  .includes{
+    margin:10px 0 2px; color:var(--muted); display:flex; align-items:center; gap:8px;
+  }
+  .includes svg{width:18px; height:18px; color:var(--muted)}
+  .price{
+    font-weight:800; font-size: clamp(22px,3.2vw,30px); color:var(--teal); align-self:start; white-space:nowrap;
+  }
+  .cta{
+    display:flex; gap:12px; align-items:center; margin-top:10px;
+  }
+  .btn{
+    appearance:none; border:0; border-radius:999px; padding:12px 20px; font-weight:800;
+    background:var(--teal); color:#fff; cursor:pointer; box-shadow:var(--shadow);
+  }
+  .btn:hover{background:var(--teal-700)}
+  .list{margin:10px 0 0; padding:0; list-style:none; color:var(--text)}
+  .list li{display:flex; gap:10px; align-items:flex-start; margin:.35rem 0}
+  .list li .check{
+    width:20px; height:20px; border-radius:6px; display:grid; place-items:center; color:#fff;
+    background:var(--teal);
+    flex:0 0 20px; margin-top:2px;
+  }
+  .muted{color:var(--muted)}
+  .footer-space{height:28px}
+
+  /* ============ responsive ============ */
+  @media (max-width: 860px){
+    .nav-toggle{display:inline-grid}
+    .nav-links{position:absolute; inset:56px 0 auto 0; background:rgba(0,0,0,.25);
+      backdrop-filter: blur(8px); padding:10px 16px; display:none;}
+    .nav-links a{display:block; padding:10px 8px}
+    .nav-links.open{display:block}
+    .price-card{grid-template-columns:1fr; gap:2px 0}
+    .price{order:1}
+    .desc{order:2}
+    .cta{order:3}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ top ============ -->
+<div class="hero-top">
+  <div class="container">
+    <nav class="nav" aria-label="Primary">
+      <div class="brand">
+        <img src="assets/Lala.png" alt="Hello Deutsch logo">
+        <span>Hello Deutsch</span>
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#our-story">Our Story</a>
+        <a href="index.html#process">How We Work</a>
+        <a href="index.html#news">Blog</a>
+        <a href="pricing.html" style="text-decoration:underline;">Pricing</a>
+      </div>
+    </nav>
+
+    <div class="hero container">
+      <h1>Our Program Pricing</h1>
+      <p>Simple, transparent options for every step of your move to Germany.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ pricing ============ -->
+<section class="section">
+  <div class="container">
+    <div class="stack">
+
+      <!-- Step 1 -->
+      <article class="price-card">
+        <div>
+          <div class="eyebrow">Step 1</div>
+          <h3>2 Months German Course</h3>
+          <div class="meta">
+            <span><span class="muted">Duration:</span> <b>2 months</b></span>
+            <span><span class="muted">Location:</span> <b>India (live online, 15 students per class)</b></span>
+          </div>
+        </div>
+        <div class="price">€650</div>
+
+        <p class="desc">Prepare &amp; pass the TELC German exam – mandatory for employment in Germany.</p>
+        <div class="includes" aria-label="Includes">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12h8M8 16h6M8 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Includes tuition, materials &amp; exam prep
+        </div>
+        <div class="cta">
+          <a class="btn"
+             href="https://forms.gle/hZE9ZdLAtzxqdneZ9"
+             target="_blank" rel="noopener"
+             aria-label="Book the 2 Months German Course via form">
+            Book Now
+          </a>
+        </div>
+      </article>
+
+      <!-- Listen-only alternative -->
+      <article class="price-card">
+        <div>
+          <div class="eyebrow">Step Alternative</div>
+          <h3>Listen-only Online Access</h3>
+        </div>
+        <div class="price">€300</div>
+        <p class="desc">A flexible option with no homework submissions or direct Q&amp;A support.</p>
+        <div class="cta">
+          <a class="btn"
+             href="https://forms.gle/hZE9ZdLAtzxqdneZ9"
+             target="_blank" rel="noopener"
+             aria-label="Book the Listen-only Online Access via form">
+            Book Now
+          </a>
+        </div>
+      </article>
+
+      <!-- Step 2 -->
+      <article class="price-card">
+        <div>
+          <div class="eyebrow">Step 2</div>
+          <h3>“Fit4Germany” Professional Integration Training</h3>
+          <div class="meta">
+            <span><span class="muted">Duration:</span> <b>4 weeks</b></span>
+            <span><span class="muted">Location:</span> <b>India (live online, 15 students per class)</b></span>
+          </div>
+        </div>
+        <div class="price">€2,000</div>
+        <p class="desc">Covers German hospital protocols, workplace etiquette, medical terminology, and cultural orientation. Includes internal certification by Auxilla.</p>
+        <div class="includes">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12h8M8 16h6M8 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Includes training, materials &amp; assessments
+        </div>
+        <div class="cta">
+          <a class="btn"
+             href="https://forms.gle/hZE9ZdLAtzxqdneZ9"
+             target="_blank" rel="noopener"
+             aria-label="Book the Fit4Germany training via form">
+            Book Now
+          </a>
+        </div>
+      </article>
+
+      <!-- Visa docs -->
+      <article class="price-card">
+        <div>
+          <div class="eyebrow">Step Service</div>
+          <h3>Visa Documentation Preparation</h3>
+        </div>
+        <div class="price">€75</div>
+        <p class="desc">
+          We help you prepare and organize your visa documents, ensuring that everything needed for your application is correctly filled out. Our service includes guidance on required documents and assistance with completing the forms.
+          <br><br>
+          While we cannot guarantee a successful application, we have worked on hundreds of visa applications with a 98% success rate. Get professional support to make your visa process smoother and stress-free!
+        </p>
+        <div class="cta">
+          <a class="btn"
+             href="https://forms.gle/hZE9ZdLAtzxqdneZ9"
+             target="_blank" rel="noopener"
+             aria-label="Book the Visa Documentation service via form">
+            Book Now
+          </a>
+        </div>
+      </article>
+
+      <!-- Integration course -->
+      <article class="price-card">
+        <div>
+          <div class="eyebrow">Step Service</div>
+          <h3>German Integration Course</h3>
+        </div>
+        <div class="price">€40</div>
+        <ul class="list desc">
+          <li><span class="check">✔</span><span>Live online sessions: Interactive and practical learning</span></li>
+          <li><span class="check">✔</span><span>Flexible booking: Choose a time that fits your schedule</span></li>
+          <li><span class="check">✔</span><span>Recap provided: Summary of key points after each session</span></li>
+        </ul>
+        <div class="cta">
+          <a class="btn"
+             href="https://forms.gle/hZE9ZdLAtzxqdneZ9"
+             target="_blank" rel="noopener"
+             aria-label="Book the German Integration Course via form">
+            Book Now
+          </a>
+        </div>
+      </article>
+
+      <!-- Free consult -->
+      <article class="price-card">
+        <div>
+          <div class="eyebrow">Step Service</div>
+          <h3>Free 15-Minute Consultation Call</h3>
+        </div>
+        <div class="price">Free</div>
+        <ul class="list desc">
+          <li><span class="check">✔</span><span><b>Duration:</b> 15 minutes</span></li>
+          <li><span class="check">✔</span><span><b>Format:</b> Online video call</span></li>
+          <li><span class="check">✔</span><span><b>Purpose:</b> Quick Q&amp;A to help you choose the right service</span></li>
+        </ul>
+        <div class="cta">
+          <a class="btn"
+             href="https://forms.gle/hZE9ZdLAtzxqdneZ9"
+             target="_blank" rel="noopener"
+             aria-label="Book the free consultation via form">
+            Book Now
+          </a>
+        </div>
+      </article>
+
+    </div>
+    <div class="footer-space"></div>
+  </div>
+</section>
+
+<script>
+  // mobile nav
+  const btn = document.querySelector('.nav-toggle');
+  const links = document.getElementById('navLinks');
+  btn?.addEventListener('click', () => {
+    links.classList.toggle('open');
+    const open = links.classList.contains('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+</script>
+</body>
+</html>
